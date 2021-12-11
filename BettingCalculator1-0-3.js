@@ -49,6 +49,10 @@ bettingPowerField.addEventListener('blur', () => {
     bettingPower = parseFloat(bettingPowerField.value)
 })
 
+bettingPowerField.addEventListener('focus', () => {
+    bettingPowerField.placeholder = ''
+})
+
 calculateBetsButton.addEventListener('click', () => {
     calculateBets()
 })
