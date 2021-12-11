@@ -247,7 +247,7 @@ function buildParlays(parlayArray) {
         createDOMElement('div', 'parlay-header-text', `Parlay ${index+1} of ${parlayArray.length}`, parlayHeader)
         const payoutDiv = createDOMElement('div', 'payout-div', 'none', parlayHeader)
         createDOMElement('div', 'bet-amount-text', `Bet Amount: $${getBetAmount(parlay)}`, payoutDiv)
-        createDOMElement('div', 'bet-amount-text', `Potential Profit: $${getWinAmount(parlay)}`, payoutDiv)
+        createDOMElement('div', 'bet-amount-text', `Potential Win Amount: $${getWinAmount(parlay)}`, payoutDiv)
 
         parlay.forEach( (selection, selectionIndex) => {
             var matchupInfo = matchupDict[selectionIndex]
@@ -333,9 +333,8 @@ function createDOMElement(type, classStr, text, parentElement) {
 }
 
 function getBetAmount(parlay) {
-
-    return bettingPower / numParlays
-
+    var betAmount = bettingPower / numParlays
+    return betAmount.toFixed(2)
 }
 
 
@@ -361,5 +360,6 @@ function getWinAmount(parlay) {
     })
 
     var betAmount = bettingPower / numParlays
-    return (betAmount * multiplier) - betAmount
+    var winAmount = (betAmount * multiplier) - betAmount
+    return winAmount.toFixed(2)
 }
