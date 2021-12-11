@@ -247,7 +247,7 @@ function buildParlays(parlayArray) {
         createDOMElement('div', 'parlay-header-text', `Parlay ${index+1} of ${parlayArray.length}`, parlayHeader)
         const payoutDiv = createDOMElement('div', 'payout-div', 'none', parlayHeader)
         createDOMElement('div', 'bet-amount-text', `Bet Amount: $${getBetAmount(parlay)}`, payoutDiv)
-        createDOMElement('div', 'bet-amount-text', `Win Amount: $${getWinAmount(parlay)}`, payoutDiv)
+        createDOMElement('div', 'bet-amount-text', `Potential Profit: $${getWinAmount(parlay)}`, payoutDiv)
 
         parlay.forEach( (selection, selectionIndex) => {
             var matchupInfo = matchupDict[selectionIndex]
@@ -307,4 +307,59 @@ function buildParlays(parlayArray) {
             }
         })
     })
+}
+
+
+
+
+
+
+
+
+//Helper Functions
+function createDOMElement(type, classStr, text, parentElement) {
+    let DOMElement = document.createElement(`${type}`)
+    DOMElement.className = classStr
+  
+    if(text != 'none') {
+      DOMElement.innerHTML = text
+    }
+  
+    if(parentElement != 'none') {
+      parentElement.appendChild(DOMElement)
+    }
+  
+    return(DOMElement)
+}
+
+function getBetAmount(parlay) {
+
+    return bettingPower / numParlays
+
+}
+
+
+function getWinAmount(parlay) {
+    console.log(parlay)
+
+    var multiplier = 1
+
+    parlay.forEach( (bet, index) => {
+        var oddsVal = parseFloat(matchupDict[index][bet])
+        var newMultiplier
+
+        if(oddsVal > 0) {
+            newMultiplier = (oddsVal / 100) + 1
+            console.log('new multiplier: ', newMultiplier)
+        } else {
+            newMultiplier = (100 / (-1 * oddsVal)) + 1
+            console.log('new multiplier: ', newMultiplier)
+        }
+
+        multiplier = multiplier * newMultiplier
+        console.log(multiplier)
+    })
+
+    var betAmount = bettingPower / numParlays
+    return (betAmount * multiplier) - betAmount
 }
