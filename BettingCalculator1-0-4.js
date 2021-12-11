@@ -79,11 +79,17 @@ function addMatchup(){
     const team1FieldDiv = createDOMElement('div', 'field-div', 'none', teamNameFields)
     const team1Field = createDOMElement('input', 'name-field w-input', 'none', team1FieldDiv)
     team1Field.setAttribute('id', `team-field-1-${matchupIndex}`)
+    team1Field.addEventListener('focus', () => {
+        team1Field.placeholder = ''
+    })
     team1Field.placeholder = 'Team 1'
 
     const team2FieldDiv = createDOMElement('div', 'field-div', 'none', teamNameFields)
     const team2Field = createDOMElement('input', 'name-field w-input', 'none', team2FieldDiv)
     team2Field.setAttribute('id', `team-field-2-${matchupIndex}`)
+    team2Field.addEventListener('focus', () => {
+        team2Field.placeholder = ''
+    })
     team2Field.placeholder = 'Team 2'
 
     const oddsFieldsDiv = createDOMElement('div', 'odds-fields-div', 'none', teamFieldsDiv)
@@ -100,9 +106,15 @@ function addMatchup(){
     createDOMElement('div', 'matchup-text', 'SPREAD', spreadOddsHeaderDiv)
     const spread1Field = createDOMElement('input', 'odds-field w-input', 'none', spreadOddsDiv)
     spread1Field.setAttribute('id', `spread-field-1-${matchupIndex}`)
+    spread1Field.addEventListener('focus', () => {
+        spread1Field.placeholder = ''
+    })
     spread1Field.placeholder = 'Enter Odds'
     const spread2Field = createDOMElement('input', 'odds-field w-input', 'none', spreadOddsDiv)
     spread2Field.setAttribute('id', `spread-field-2-${matchupIndex}`)
+    spread2Field.addEventListener('focus', () => {
+        spread2Field.placeholder = ''
+    })
     spread2Field.placeholder = 'Enter Odds'
 
     const moneylineOddsDiv = createDOMElement('div', 'odds-div', 'none', oddsFieldsDiv)
@@ -117,9 +129,15 @@ function addMatchup(){
     createDOMElement('div', 'matchup-text', 'MONEYLINE', moneylineOddsHeaderDiv)
     const moneyline1Field = createDOMElement('input', 'odds-field w-input', 'none', moneylineOddsDiv)
     moneyline1Field.setAttribute('id', `moneyline-field-1-${matchupIndex}`)
+    moneyline1Field.addEventListener('focus', () => {
+        moneyline1Field.placeholder = ''
+    })
     moneyline1Field.placeholder = 'Enter Odds'
     const moneyline2Field = createDOMElement('input', 'odds-field w-input', 'none', moneylineOddsDiv)
     moneyline2Field.setAttribute('id', `moneyline-field-2-${matchupIndex}`)
+    moneyline2Field.addEventListener('focus', () => {
+        moneyline2Field.placeholder = ''
+    })
     moneyline2Field.placeholder = 'Enter Odds'
 
 
@@ -135,9 +153,15 @@ function addMatchup(){
     createDOMElement('div', 'matchup-text', 'TOTAL', totalOddsHeaderDiv)
     const total1Field = createDOMElement('input', 'odds-field w-input', 'none', totalOddsDiv)
     total1Field.setAttribute('id', `total-field-1-${matchupIndex}`)
+    total1Field.addEventListener('focus', () => {
+        total1Field.placeholder = ''
+    })
     total1Field.placeholder = 'Enter Odds'
     const total2Field = createDOMElement('input', 'odds-field w-input', 'none', totalOddsDiv)
     total2Field.setAttribute('id', `total-field-2-${matchupIndex}`)
+    total2Field.addEventListener('focus', () => {
+        total2Field.placeholder = ''
+    })
     total2Field.placeholder = 'Enter Odds'
 
 
