@@ -1,6 +1,9 @@
+
 //HTML Elements
 const matchupArea = document.getElementById('matchup-area')
 const addMatchupButton = document.getElementById('add-matchup-button')
+const clearButton = document.getElementById('clear-button')
+const bettingPowerField = document.getElementById('betting-power-field')
 const calculateBetsButton = document.getElementById('calculate-bets-button')
 
 const betsArea = document.getElementById('bets-area')
@@ -9,9 +12,9 @@ const betsArea = document.getElementById('bets-area')
 //Global Variables
 var matchupDict = {}
 var betTypeDict = {}
+var bettingPower = 1000
 
-
-//Window Onload Function
+//Onload and Event Listeners
 window.onload = () => {
     loadMyBookieCalculator()
 }
@@ -25,16 +28,32 @@ function loadMyBookieCalculator() {
         betsArea.removeChild(betsArea.firstChild)
     }
 
-    addMatchupButton.addEventListener('click', () => {
-        addMatchup()
-    })
+    matchupDict = {}
 
-    calculateBetsButton.addEventListener('click', () => {
-        calculateBets()
-    })
+    betTypeDict = {}
+
+    bettingPower = 1000
 
     addMatchup()
 }
+
+addMatchupButton.addEventListener('click', () => {
+    addMatchup()
+})
+
+clearButton.addEventListener('click', () => {
+    loadMyBookieCalculator()
+})
+
+bettingPowerField.addEventListener('blur', () => {
+    bettingPower = parseFloat(bettingPowerField.value)
+})
+
+calculateBetsButton.addEventListener('click', () => {
+    calculateBets()
+})
+
+
 
 
 
@@ -257,32 +276,4 @@ function buildParlays(parlayArray) {
             }
         })
     })
-}
-
-
-
-
-
-//Helper Functions
-function createDOMElement(type, classStr, text, parentElement) {
-    let DOMElement = document.createElement(`${type}`)
-    DOMElement.className = classStr
-  
-    if(text != 'none') {
-      DOMElement.innerHTML = text
-    }
-  
-    if(parentElement != 'none') {
-      parentElement.appendChild(DOMElement)
-    }
-  
-    return(DOMElement)
-}
-
-function getBetAmount(parlay) {
-
-}
-
-function getWinAmount(parlay) {
-
 }
