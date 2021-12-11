@@ -13,6 +13,7 @@ const betsArea = document.getElementById('bets-area')
 var matchupDict = {}
 var betTypeDict = {}
 var bettingPower = 1000
+var numParlays = 0
 
 //Onload and Event Listeners
 window.onload = () => {
@@ -33,6 +34,8 @@ function loadMyBookieCalculator() {
     betTypeDict = {}
 
     bettingPower = 1000
+
+    numParlays = 0
 
     addMatchup()
 }
@@ -179,7 +182,7 @@ function calculateBets() {
     }
 
     var numMatchups = Object.keys(matchupDict).length 
-    var numParlays = Math.pow(2, numMatchups)
+    numParlays = Math.pow(2, numMatchups)
     var parlays = [...Array(numParlays)].map(e => Array())
 
     var divisor = 2
