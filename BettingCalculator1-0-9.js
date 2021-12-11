@@ -315,8 +315,8 @@ function buildParlays(parlayArray) {
         })
     })
 
-    betsSummary.style.display = 'flex'
-    totalActionText.innerHTML = 'Total Action: $' + totalAction
+    betsSummary.style.display = 'block'
+    totalActionText.innerHTML = 'Total Action: $' + totalAction.toFixed(2)
     var average = totalAction / numParlays
     averageWinAmountText.innerHTML = 'Average Win Amount: $' + average.toFixed(2)
 
