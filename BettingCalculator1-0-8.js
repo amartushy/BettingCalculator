@@ -1,4 +1,3 @@
-
 //HTML Elements
 const matchupArea = document.getElementById('matchup-area')
 const addMatchupButton = document.getElementById('add-matchup-button')
@@ -7,13 +6,17 @@ const bettingPowerField = document.getElementById('betting-power-field')
 const calculateBetsButton = document.getElementById('calculate-bets-button')
 
 const betsArea = document.getElementById('bets-area')
-
+const betsSummary = document.getElementById('bets-summary')
+const totalActionText = document.getElementById('total-action-text')
+const averageWinAmountText = document.getElementById('average-win-amount-text')
 
 //Global Variables
 var matchupDict = {}
 var betTypeDict = {}
 var bettingPower = 1000
 var numParlays = 0
+var totalAction = 0
+var totalWinAmount = 0
 
 //Onload and Event Listeners
 window.onload = () => {
@@ -29,6 +32,8 @@ function loadMyBookieCalculator() {
         betsArea.removeChild(betsArea.firstChild)
     }
 
+    betsSummary.style.display = 'none'
+
     matchupDict = {}
 
     betTypeDict = {}
@@ -36,6 +41,8 @@ function loadMyBookieCalculator() {
     bettingPower = 1000
 
     numParlays = 0
+
+
 
     addMatchup()
 }
@@ -248,7 +255,7 @@ function buildParlays(parlayArray) {
         const payoutDiv = createDOMElement('div', 'payout-div', 'none', parlayHeader)
         createDOMElement('div', 'bet-amount-text', `Bet Amount: $${getBetAmount(parlay)}`, payoutDiv)
         createDOMElement('div', 'bet-amount-text', `Potential Win Amount: $${getWinAmount(parlay)}`, payoutDiv)
-
+        
         parlay.forEach( (selection, selectionIndex) => {
             var matchupInfo = matchupDict[selectionIndex]
 
@@ -307,6 +314,12 @@ function buildParlays(parlayArray) {
             }
         })
     })
+
+    betsSummary.style.display = 'flex'
+    totalActionText.innerHTML = 'Total Action: $' + totalAction
+    var average = totalAction / numParlays
+    averageWinAmountText.innerHTML = 'Average Win Amount: $' + average.toFixed(2)
+
 }
 
 
@@ -361,5 +374,8 @@ function getWinAmount(parlay) {
 
     var betAmount = bettingPower / numParlays
     var winAmount = (betAmount * multiplier) - betAmount
+
+    totalAction += winAmount
+
     return winAmount.toFixed(2)
 }
