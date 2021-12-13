@@ -183,7 +183,9 @@ function calculateBets() {
 
     getMatchupValues()
 
-
+    totalAction = 0
+    totalWinAmount = 0
+    
     while (betsArea.firstChild) {
         betsArea.removeChild(betsArea.firstChild)
     }
