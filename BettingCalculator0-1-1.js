@@ -1,3 +1,4 @@
+
 //HTML Elements
 const matchupArea = document.getElementById('matchup-area')
 const addMatchupButton = document.getElementById('add-matchup-button')
@@ -185,7 +186,7 @@ function calculateBets() {
 
     totalAction = 0
     totalWinAmount = 0
-    
+
     while (betsArea.firstChild) {
         betsArea.removeChild(betsArea.firstChild)
     }
@@ -235,7 +236,7 @@ function getMatchupValues() {
             'team1' : document.getElementById(`team-field-1-${i}`).value,
             'team2' : document.getElementById(`team-field-2-${i}`).value,
             'spread1': parseFloat(document.getElementById(`spread-field-1-${i}`).value),
-            'spread2' : parseFloat(document.getElementById(`spread-field-1-${i}`).value),
+            'spread2' : parseFloat(document.getElementById(`spread-field-2-${i}`).value),
             'moneyline1' : parseFloat(document.getElementById(`moneyline-field-1-${i}`).value),
             'moneyline2' : parseFloat(document.getElementById(`moneyline-field-2-${i}`).value),
             'total1' : parseFloat(document.getElementById(`total-field-1-${i}`).value),
@@ -381,3 +382,4 @@ function getWinAmount(parlay) {
 
     return winAmount.toFixed(2)
 }
+
