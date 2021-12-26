@@ -31,7 +31,7 @@ window.onload = () => {
                     
                 } else {
                     location.href = 'https://www.mybookie.webflow.io/login'
-'
+
                 }
             })
 
