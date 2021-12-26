@@ -24,24 +24,11 @@ function signIn(){
 
 	firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then( function() {
 		firebase.auth().onAuthStateChanged(function(user) {
-			if (user) {
-				userDB = firebase.firestore()
-				var userID = user.uid
-                
-                userDB.collection('users').doc(userID).get().then(function(doc) {
-                    let data = doc.data()
-
-                    if (data.isUser) {
+                    if (user) {
                         location.href = 'https://mybookie.webflow.io/'
                     } else {
-                      alert('You do not have access to visit this page.')
+                      	alert('You do not have access to visit this page.')
                     }
-                  
-                })
-			} else {
-				console.log("no user logged in")
-			}
-		});
 	}).catch(function(error){
 		var errorCode = error.code;
 		var errorMessage = error.message;
