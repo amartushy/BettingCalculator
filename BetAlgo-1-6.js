@@ -30,13 +30,13 @@ window.onload = () => {
                     loadMyBookieCalculator()
                     
                 } else {
-                    location.href = 'https://www.mybookie.webflow.io/login'
+                    location.href = 'www.mybookie.webflow.io/login'
 
                 }
             })
 
         } else {
-                    location.href = 'https://www.mybookie.webflow.io/login'
+                    location.href = 'www.mybookie.webflow.io/login'
         }
     })
 }
