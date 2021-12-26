@@ -29,6 +29,7 @@ function signIn(){
                     } else {
                       	alert('You do not have access to visit this page.')
                     }
+		})
 	}).catch(function(error){
 		var errorCode = error.code;
 		var errorMessage = error.message;
