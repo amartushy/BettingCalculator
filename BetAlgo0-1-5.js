@@ -24,10 +24,8 @@ window.onload = () => {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
                 loadMyBookieCalculator()
-            }
-
         } else {
-                    location.href = 'login'
+                location.href = 'login'
         }
     })
 }
