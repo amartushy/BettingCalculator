@@ -30,12 +30,13 @@ window.onload = () => {
                     loadMyBookieCalculator()
                     
                 } else {
-                    location.href = 'https://www.thegametree.io/login'
+                    location.href = 'https://www.mybookie.webflow.io/login
+'
                 }
             })
 
         } else {
-            location.href = 'https://www.thegametree.io/login'
+                    location.href = 'https://www.mybookie.webflow.io/login
         }
     })
 }
