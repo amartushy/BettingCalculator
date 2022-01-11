@@ -403,7 +403,7 @@ function calculateOddsMultiplier(parlay) {
     })
 
     console.log('Multipler is: ', multiplier)
-    
+
     multipliers.push(multiplier)
     betAmounts.push(maxWin / multiplier)
 }
@@ -417,16 +417,23 @@ function calculateAdjustedBets() {
         sumBets += parseFloat(bet)
     })
 
+    console.log('Sum Bets: $', sumBets)
+
     betAdjustmentRatio = sumBets / bettingPower
+
+    console.log('Ratio: ', betAdjustmentRatio)
 
     betAmounts.forEach( (bet, index) => {
         console.log(bet, index)
         adjustedBetAmounts.push( bet / betAdjustmentRatio ) 
+    })
+
+    adjustedBetAmounts.forEach( (betAmount, index) => {
+        console.log(bet, index)
 
         var betAmountText = document.getElementById(`bet-amount-text-${index+1}`)
         var winAmountText = document.getElementById(`win-amount-text-${index+1}`)
 
-        var betAmount = adjustedBetAmounts[index]
         betAmountText.innerHTML = `Bet Amount: $${betAmount.toFixed(2)}`
 
         var winAmount = (betAmount * multipliers[index]) - betAmount
