@@ -1,3 +1,4 @@
+
 //HTML Elements
 const matchupArea = document.getElementById('matchup-area')
 const addMatchupButton = document.getElementById('add-matchup-button')
@@ -230,8 +231,6 @@ function calculateBets() {
                 }
             }
 
-            console.log(numItemsAdded)
-
         }
         numItemsAdded = 0
         divisor  = divisor * 2
@@ -346,7 +345,7 @@ function buildParlays(parlayArray) {
     guaranteedWinAmount = adjustedBetAmounts[1] * multipliers[1]
 
     var percentReturn = ( guaranteedWinAmount / bettingPower ) * 100
-    percentReturnText.innerHTML = `Percent Return: %${percentReturn.toFixed(2)}`
+    percentReturnText.innerHTML = `Percent Return: ${percentReturn.toFixed(2)}%`
 
     guaranteedWinAmountText.innerHTML = 'Guaranteed Win: $' + guaranteedWinAmount.toFixed(2)
 
@@ -423,7 +422,7 @@ function calculateAdjustedBets() {
     console.log('Ratio: ', betAdjustmentRatio)
 
     betAmounts.forEach( (bet, index) => {
-        console.log(bet, index)
+
         adjustedBetAmounts.push( bet / betAdjustmentRatio ) 
     })
 
