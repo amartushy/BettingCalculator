@@ -418,6 +418,7 @@ function calculateAdjustedBets() {
     betAdjustmentRatio = sumBets / bettingPower
 
     betAmounts.forEach( (bet, index) => {
+        console.log(bet, index)
         adjustedBetAmounts.push( bet / betAdjustmentRatio ) 
 
         var betAmountText = document.getElementById(`bet-amount-text-${index+1}`)
