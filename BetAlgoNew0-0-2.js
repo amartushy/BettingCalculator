@@ -426,7 +426,7 @@ function calculateAdjustedBets() {
         var betAmount = adjustedBetAmounts[index]
         betAmountText.innerHTML = `Bet Amount: $${betAmount.toFixed(2)}`
 
-        var winAmount = (betAmount * multiplier) - betAmount
+        var winAmount = (betAmount * multipliers[index]) - betAmount
         winAmountText.innerHTML = `Win: $${winAmount.toFixed(2)}`
 
         totalAction += winAmount
