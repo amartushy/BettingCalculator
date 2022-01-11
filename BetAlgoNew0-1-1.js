@@ -65,8 +65,6 @@ function loadMyBookieCalculator() {
     betAdjustmentRatio = 0
     guaranteedWinAmount = 0
 
-
-
     addMatchup()
 }
 
@@ -213,6 +211,12 @@ function addMatchup(){
 function calculateBets() {
 
     getMatchupValues()
+
+    multipliers = []
+    betAmounts = []
+    adjustedBetAmounts = []
+    betAdjustmentRatio = 0
+    guaranteedWinAmount = 0
 
     totalAction = 0
     totalWinAmount = 0
