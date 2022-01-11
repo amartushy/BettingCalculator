@@ -429,7 +429,6 @@ function calculateAdjustedBets() {
     })
 
     adjustedBetAmounts.forEach( (betAmount, index) => {
-        console.log(bet, index)
 
         var betAmountText = document.getElementById(`bet-amount-text-${index+1}`)
         var winAmountText = document.getElementById(`win-amount-text-${index+1}`)
