@@ -399,11 +399,13 @@ function calculateOddsMultiplier(parlay) {
         }
 
         multiplier = multiplier * newMultiplier
-        multipliers.push(multiplier)
-        betAmounts.push(maxWin / multiplier)
 
-        console.log('Multipler is: ', multiplier)
     })
+
+    console.log('Multipler is: ', multiplier)
+    
+    multipliers.push(multiplier)
+    betAmounts.push(maxWin / multiplier)
 }
 
 
