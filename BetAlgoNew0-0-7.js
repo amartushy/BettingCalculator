@@ -47,7 +47,7 @@ function loadMyBookieCalculator() {
 
     betTypeDict = {}
 
-    bettingPower = 1000
+    bettingPower = 500
     maxWin = 500
 
     numParlays = 0
