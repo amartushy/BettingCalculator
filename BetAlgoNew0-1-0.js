@@ -21,6 +21,13 @@ var numParlays = 0
 var totalAction = 0
 var totalWinAmount = 0
 
+var multipliers = []
+var betAmounts = []
+var adjustedBetAmounts = []
+var betAdjustmentRatio = 0
+var guaranteedWinAmount = 0
+
+
 //Onload and Event Listeners
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -51,6 +58,12 @@ function loadMyBookieCalculator() {
     maxWin = 500
 
     numParlays = 0
+
+    multipliers = []
+    betAmounts = []
+    adjustedBetAmounts = []
+    betAdjustmentRatio = 0
+    guaranteedWinAmount = 0
 
 
 
@@ -374,12 +387,6 @@ function createDOMElement(type, classStr, text, parentElement) {
     return(DOMElement)
 }
 
-
-var multipliers = []
-var betAmounts = []
-var adjustedBetAmounts = []
-var betAdjustmentRatio = 0
-var guaranteedWinAmount = 0
 
 function calculateOddsMultiplier(parlay) {
 
