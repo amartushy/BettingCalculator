@@ -25,19 +25,9 @@ var totalWinAmount = 0
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            database.collection('users').doc(user.uid).get().then(function(doc) {
-                let data = doc.data()
-
-                if (data.isUser) {
-                    loadMyBookieCalculator()
-                    
-                } else {
-                    location.href = 'https://www.thegametree.io/login'
-                }
-            })
-
+                loadMyBookieCalculator()
         } else {
-            location.href = 'https://www.thegametree.io/login'
+                location.href = 'login'
         }
     })
 }
